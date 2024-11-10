@@ -28,6 +28,7 @@ function Footer() {
           <ul className="flex flex-col gap-1 text-gray-600">
             <li>+216 56609009</li>
             <li>contact@EliteChateau.com</li>
+            <li>@youssefhabbachi</li>
           </ul>
         </div>
       </div>
