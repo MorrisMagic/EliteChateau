@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { IoIosSearch } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
 import { GiShoppingCart } from "react-icons/gi";
 import { IoMenuOutline } from "react-icons/io5";
 import { IoChevronBack } from "react-icons/io5";
+import { ShopContext } from "../context/ShopContext";
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
+  const { setShowSearch, ShowSearch, getCartCount } = useContext(ShopContext);
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       <Link to={"/"}>
@@ -35,7 +37,11 @@ function Navbar() {
         </NavLink>
       </ul>
       <div className="flex items-center gap-6">
-        <IoIosSearch className="cursor-pointer" size={22} />
+        <IoIosSearch
+          onClick={() => setShowSearch(!ShowSearch)}
+          className="cursor-pointer"
+          size={22}
+        />
         <div className="group relative">
           <IoPersonOutline size={21} className="cursor-pointer" />
           <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
@@ -50,7 +56,7 @@ function Navbar() {
         <Link to={"/card"} className="relative">
           <GiShoppingCart size={23} />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-            10
+            {getCartCount()}
           </p>
         </Link>
         <IoMenuOutline

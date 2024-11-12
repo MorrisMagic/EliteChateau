@@ -231,7 +231,7 @@ export const products = [
   },
   {
     _id: "18",
-    name: "Me Backpack",
+    name: "Men Backpack",
     description:
       "A stylish and practical backpack with multiple compartments for your essentials.",
     price: 650,
