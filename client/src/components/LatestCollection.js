@@ -8,8 +8,8 @@ function LatestCollection() {
 
   const [latestProducts, setLatestProducts] = useState([]);
   useEffect(() => {
-    setLatestProducts(products.slice(0, 10));
-  }, []);
+    setLatestProducts(products.slice(0, 10)); //10
+  }, [products]);
   return (
     <div className="my-10">
       <div className="text-center py-8 text-3xl">
@@ -24,7 +24,7 @@ function LatestCollection() {
           <ProductItem
             key={index}
             id={item._id}
-            img={item.image}
+            img={item.img}
             name={item.name}
             price={item.price}
           />

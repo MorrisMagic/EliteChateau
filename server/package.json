@@ -7,11 +7,17 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "nodemon": "latest",
-    "mongoose": "latest",
-    "dotenv": "latest",
+    "bcrypt": "latest",
+    "cloudinary": "^2.5.1",
     "cors": "latest",
-    "bcrypt": "latest"
+    "dotenv": "latest",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "latest",
+    "multer": "^1.4.5-lts.1",
+    "nodemon": "latest",
+    "razorpay": "^2.9.5",
+    "stripe": "^17.3.1",
+    "validator": "^13.12.0"
   }
 }

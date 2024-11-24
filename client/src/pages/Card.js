@@ -42,7 +42,7 @@ function Card() {
               <div className="flex items-start gap-6">
                 <img
                   className="w-16 sm:w-20 object-cover"
-                  src={productData?.image?.[0] || "default-placeholder.png"}
+                  src={productData?.img?.[0] || "default-placeholder.png"}
                   alt={productData?.name || "Product"}
                 />
               </div>

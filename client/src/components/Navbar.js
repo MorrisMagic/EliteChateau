@@ -9,7 +9,21 @@ import { ShopContext } from "../context/ShopContext";
 
 function Navbar() {
   const [visible, setVisible] = useState(false);
-  const { setShowSearch, ShowSearch, getCartCount } = useContext(ShopContext);
+  const {
+    setShowSearch,
+    ShowSearch,
+    getCartCount,
+    navigate,
+    token,
+    settoken,
+    setCartItems,
+  } = useContext(ShopContext);
+  const logout = () => {
+    navigate("/login");
+    localStorage.removeItem("token");
+    settoken("");
+    setCartItems({});
+  };
   return (
     <div className="flex items-center justify-between py-5 font-medium">
       <Link to={"/"}>
@@ -43,16 +57,27 @@ function Navbar() {
           size={22}
         />
         <div className="group relative">
-          <Link to={"/login"}>
-            <IoPersonOutline size={21} className="cursor-pointer" />
-          </Link>
-          <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-            <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
-              <p className="cursor-pointer hover:text-black">Logout</p>
+          <IoPersonOutline
+            onClick={() => (token ? null : navigate("/login"))}
+            size={21}
+            className="cursor-pointer"
+          />
+          {token && (
+            <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
+              <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
+                <p className="cursor-pointer hover:text-black">My Profile</p>
+                <p
+                  onClick={() => navigate("/orders")}
+                  className="cursor-pointer hover:text-black"
+                >
+                  Orders
+                </p>
+                <p onClick={logout} className="cursor-pointer hover:text-black">
+                  Logout
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <Link to={"/card"} className="relative">

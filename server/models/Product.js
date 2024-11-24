@@ -12,26 +12,28 @@ const ProductSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    size: {
-      type: String,
-      required: true,
-    },
     price: {
       type: Number,
       required: true,
     },
-    img: {
+    category: {
       type: String,
-      unique: true,
       required: true,
     },
-    quantity: {
-      type: Number,
+    SubCategory: {
+      type: String,
       required: true,
     },
-    offers: {
-      type: Number,
-      default: 0,
+    img: {
+      type: Array,
+      required: true,
+    },
+    size: {
+      type: Array,
+      required: true,
+    },
+    bestseller: {
+      type: Boolean,
     },
   },
   { timestamps: true, versionKey: false }

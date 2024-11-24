@@ -43,7 +43,7 @@ function Collection() {
     }
     if (Subcategory.length > 0) {
       productsCopy = productsCopy.filter((item) =>
-        Subcategory.includes(item.subCategory)
+        Subcategory.includes(item.SubCategory)
       );
     }
     SetfilterProducts(productsCopy);
@@ -66,7 +66,7 @@ function Collection() {
 
   useEffect(() => {
     applyFilter();
-  }, [category, Subcategory, search, ShowSearch]);
+  }, [category, Subcategory, search, ShowSearch, products]);
 
   useEffect(() => {
     sort();
@@ -175,7 +175,7 @@ function Collection() {
             <ProductItem
               key={index}
               id={item._id}
-              img={item.image}
+              img={item.img}
               name={item.name}
               price={item.price}
             />

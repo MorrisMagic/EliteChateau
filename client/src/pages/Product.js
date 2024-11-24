@@ -14,7 +14,7 @@ function Product() {
     products.map((item) => {
       if (item._id === productId) {
         setProductData(item);
-        setImg(item.image[0]);
+        setImg(item.img[0]);
         console.log(productData);
         return null;
       }
@@ -23,14 +23,14 @@ function Product() {
 
   useEffect(() => {
     fetchData();
-  }, [productId, productData]);
+  }, [productId, productData, products]);
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
           <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
-            {productData.image.map((item, index) => (
+            {productData.img.map((item, index) => (
               <img
                 onClick={() => setImg(item)}
                 src={item}
@@ -63,7 +63,7 @@ function Product() {
           <div className="flex flex-col gap-4 my-8">
             <p>Select Size</p>
             <div className="flex gap-2">
-              {productData.sizes.map((item, index) => (
+              {productData.size.map((item, index) => (
                 <button
                   onClick={() => setSize(item)}
                   className={`border py-2 px-4 bg-gray-100 ${
@@ -109,7 +109,7 @@ function Product() {
         </div>
         <RelatedProducts
           category={productData.category}
-          subCategory={productData.subCategory}
+          subCategory={productData.SubCategory}
         />
       </div>
     </div>
