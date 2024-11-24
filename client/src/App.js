@@ -15,7 +15,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:5000";
+axios.defaults.baseURL = "https://elitechateau.onrender.com/";
 
 function App() {
   return (
