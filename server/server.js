@@ -16,7 +16,7 @@ app.use(
   cors({
     origin: [
       "https://elitechateau-1.onrender.com",
-      "https://elitechateau-dashboard.onrender.com/",
+      "https://elitechateau-dashboard.onrender.com",
     ],
     credentials: true,
   })
