@@ -5,14 +5,12 @@ const connectCloudinary = require("./config/cloudinary");
 const connectdb = require("./config/connectdb");
 const userRouter = require("./routes/userRoutes");
 const productRouter = require("./routes/productRoutes");
-const cookieParser = require("cookie-parser");
 const cartRouter = require("./routes/cartRoutes");
 // config
 const app = express();
 const port = process.env.PORT || 5000;
 
 // middlewares
-app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
